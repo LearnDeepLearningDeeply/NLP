@@ -1,0 +1,519 @@
+INFO:root:======== FLAGS ========
+INFO:root:L=2000
+INFO:root:N=123
+INFO:root:ALLOW_GROWTH=False
+INFO:root:BATCH_SIZE=128
+INFO:root:DATA_CACHE_DIR=../model/model_segHan/data_cache
+INFO:root:DECODE_OUTPUT=./test.output
+INFO:root:DEV_PATH_FROM=../data/valid.src
+INFO:root:DEV_PATH_TO=../data/valid.tgt
+INFO:root:FROMSCRATCH=True
+INFO:root:FROM_VOCAB_SIZE=5000
+INFO:root:KEEP_PROB=0.5
+INFO:root:LEARNING_RATE=0.5
+INFO:root:LEARNING_RATE_DECAY_FACTOR=0.83
+INFO:root:MAX_GRADIENT_NORM=5.0
+INFO:root:MODE=TRAIN
+INFO:root:MODEL_DIR=../model/model_segHan
+INFO:root:N_EPOCH=50
+INFO:root:NUM_LAYERS=1
+INFO:root:PATIENCE=10
+INFO:root:PROFILE=False
+INFO:root:SAVECHECKPOINT=True
+INFO:root:SAVED_MODEL_DIR=../model/model_segHan/saved_model
+INFO:root:SIZE=128
+INFO:root:SUMMARY_DIR=../model/model_segHan/saved_model
+INFO:root:TEST_PATH_FROM=./test.src
+INFO:root:TEST_PATH_TO=./test.tgt
+INFO:root:TO_VOCAB_SIZE=10
+INFO:root:TRAIN_PATH_FROM=../data/train.src
+INFO:root:TRAIN_PATH_TO=../data/train.tgt
+INFO:root:WITHADAGRAD=True
+INFO:root:WITH_SUMMARY=False
+INFO:root:WORD_VEC_PATH=../data/WordVectors.txt
+INFO:root:WORD_VECTOR=True
+INFO:root:======== READ DATA ========
+INFO:root:======== REPORT ========
+INFO:root:from_vocab_size: 5000
+INFO:root:to_vocab_size: 10
+INFO:root:Train:
+INFO:root:total: 91433
+INFO:root:Dev:
+INFO:root:total: 30438
+INFO:root:Steps_per_epoch: 714
+INFO:root:Total_steps:35700
+INFO:root:Steps_per_checkpoint: 357
+INFO:root:======== IN TENSORFLOW ========
+INFO:root:======== MODEL/SUMMARY/WRITER ========
+INFO:root:Creating Model.. (this can take a few minutes)
+INFO:root:Created model with fresh parameters.
+INFO:root:======== All Variables ========
+INFO:root:Variable:0
+INFO:root:Variable_1:0
+INFO:root:Variable_2:0
+INFO:root:input_embedding:0
+INFO:root:blstm/LSTM_forward/lstm_cell/kernel:0
+INFO:root:blstm/LSTM_forward/lstm_cell/bias:0
+INFO:root:blstm/LSTM_backward/lstm_cell/kernel:0
+INFO:root:blstm/LSTM_backward/lstm_cell/bias:0
+INFO:root:output_embedding:0
+INFO:root:transitions:0
+INFO:root:input_embedding/Adagrad:0
+INFO:root:blstm/LSTM_forward/lstm_cell/kernel/Adagrad:0
+INFO:root:blstm/LSTM_forward/lstm_cell/bias/Adagrad:0
+INFO:root:blstm/LSTM_backward/lstm_cell/kernel/Adagrad:0
+INFO:root:blstm/LSTM_backward/lstm_cell/bias/Adagrad:0
+INFO:root:output_embedding/Adagrad:0
+INFO:root:transitions/Adagrad:0
+INFO:root:======== Data Iterators ========
+INFO:root:Itetype: withRandom
+INFO:root:======== TRAIN ========
+INFO:root:[STEP 30] StepTime: 0.65 sec Speed: 2413.51 targets/s Total_targets: 1104845
+INFO:root:[STEP 60] StepTime: 0.60 sec Speed: 2592.24 targets/s Total_targets: 1104845
+INFO:root:[STEP 90] StepTime: 0.61 sec Speed: 2580.47 targets/s Total_targets: 1104845
+INFO:root:[STEP 120] StepTime: 0.63 sec Speed: 2480.07 targets/s Total_targets: 1104845
+INFO:root:[STEP 150] StepTime: 0.63 sec Speed: 2479.83 targets/s Total_targets: 1104845
+INFO:root:[STEP 180] StepTime: 0.63 sec Speed: 2533.22 targets/s Total_targets: 1104845
+INFO:root:[STEP 210] StepTime: 0.61 sec Speed: 2501.65 targets/s Total_targets: 1104845
+INFO:root:[STEP 240] StepTime: 0.60 sec Speed: 2560.49 targets/s Total_targets: 1104845
+INFO:root:[STEP 270] StepTime: 0.60 sec Speed: 2552.61 targets/s Total_targets: 1104845
+INFO:root:[STEP 300] StepTime: 0.59 sec Speed: 2629.83 targets/s Total_targets: 1104845
+INFO:root:[STEP 330] StepTime: 0.59 sec Speed: 2653.80 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 1 STEP 357] Learning_rate: 0.5000 Dev_acc: 0.8789 Train_acc: 0.8134
+INFO:root:[CHECKPOINT 1 STEP 357] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 360] StepTime: 0.62 sec Speed: 2503.46 targets/s Total_targets: 1104845
+INFO:root:[STEP 390] StepTime: 0.58 sec Speed: 2676.63 targets/s Total_targets: 1104845
+INFO:root:[STEP 420] StepTime: 0.60 sec Speed: 2552.17 targets/s Total_targets: 1104845
+INFO:root:[STEP 450] StepTime: 0.59 sec Speed: 2606.09 targets/s Total_targets: 1104845
+INFO:root:[STEP 480] StepTime: 0.62 sec Speed: 2512.98 targets/s Total_targets: 1104845
+INFO:root:[STEP 510] StepTime: 0.61 sec Speed: 2590.93 targets/s Total_targets: 1104845
+INFO:root:[STEP 540] StepTime: 0.60 sec Speed: 2585.83 targets/s Total_targets: 1104845
+INFO:root:[STEP 570] StepTime: 0.65 sec Speed: 2412.63 targets/s Total_targets: 1104845
+INFO:root:[STEP 600] StepTime: 0.62 sec Speed: 2479.58 targets/s Total_targets: 1104845
+INFO:root:[STEP 630] StepTime: 0.60 sec Speed: 2572.07 targets/s Total_targets: 1104845
+INFO:root:[STEP 660] StepTime: 0.60 sec Speed: 2593.08 targets/s Total_targets: 1104845
+INFO:root:[STEP 690] StepTime: 0.59 sec Speed: 2623.49 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 2 STEP 714] Learning_rate: 0.5000 Dev_acc: 0.9033 Train_acc: 0.8972
+INFO:root:[CHECKPOINT 2 STEP 714] Model saved using 0.01 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 720] StepTime: 0.59 sec Speed: 2662.86 targets/s Total_targets: 1104845
+INFO:root:[STEP 750] StepTime: 0.62 sec Speed: 2497.33 targets/s Total_targets: 1104845
+INFO:root:[STEP 780] StepTime: 0.60 sec Speed: 2533.12 targets/s Total_targets: 1104845
+INFO:root:[STEP 810] StepTime: 0.62 sec Speed: 2470.96 targets/s Total_targets: 1104845
+INFO:root:[STEP 840] StepTime: 0.64 sec Speed: 2466.35 targets/s Total_targets: 1104845
+INFO:root:[STEP 870] StepTime: 0.60 sec Speed: 2573.13 targets/s Total_targets: 1104845
+INFO:root:[STEP 900] StepTime: 0.62 sec Speed: 2515.65 targets/s Total_targets: 1104845
+INFO:root:[STEP 930] StepTime: 0.57 sec Speed: 2714.64 targets/s Total_targets: 1104845
+INFO:root:[STEP 960] StepTime: 0.59 sec Speed: 2644.84 targets/s Total_targets: 1104845
+INFO:root:[STEP 990] StepTime: 0.62 sec Speed: 2504.29 targets/s Total_targets: 1104845
+INFO:root:[STEP 1020] StepTime: 0.62 sec Speed: 2527.84 targets/s Total_targets: 1104845
+INFO:root:[STEP 1050] StepTime: 0.60 sec Speed: 2580.78 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 3 STEP 1071] Learning_rate: 0.5000 Dev_acc: 0.9153 Train_acc: 0.9173
+INFO:root:[CHECKPOINT 3 STEP 1071] Model saved using 0.01 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 1080] StepTime: 0.58 sec Speed: 2619.13 targets/s Total_targets: 1104845
+INFO:root:[STEP 1110] StepTime: 0.61 sec Speed: 2532.87 targets/s Total_targets: 1104845
+INFO:root:[STEP 1140] StepTime: 0.57 sec Speed: 2685.84 targets/s Total_targets: 1104845
+INFO:root:[STEP 1170] StepTime: 0.61 sec Speed: 2536.80 targets/s Total_targets: 1104845
+INFO:root:[STEP 1200] StepTime: 0.61 sec Speed: 2540.78 targets/s Total_targets: 1104845
+INFO:root:[STEP 1230] StepTime: 0.58 sec Speed: 2685.82 targets/s Total_targets: 1104845
+INFO:root:[STEP 1260] StepTime: 0.58 sec Speed: 2651.05 targets/s Total_targets: 1104845
+INFO:root:[STEP 1290] StepTime: 0.62 sec Speed: 2519.65 targets/s Total_targets: 1104845
+INFO:root:[STEP 1320] StepTime: 0.62 sec Speed: 2525.43 targets/s Total_targets: 1104845
+INFO:root:[STEP 1350] StepTime: 0.60 sec Speed: 2575.60 targets/s Total_targets: 1104845
+INFO:root:[STEP 1380] StepTime: 0.61 sec Speed: 2565.85 targets/s Total_targets: 1104845
+INFO:root:[STEP 1410] StepTime: 0.62 sec Speed: 2500.82 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 4 STEP 1428] Learning_rate: 0.5000 Dev_acc: 0.9212 Train_acc: 0.9280
+INFO:root:[CHECKPOINT 4 STEP 1428] Model saved using 0.01 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 1440] StepTime: 0.59 sec Speed: 2646.90 targets/s Total_targets: 1104845
+INFO:root:[STEP 1470] StepTime: 0.61 sec Speed: 2520.12 targets/s Total_targets: 1104845
+INFO:root:[STEP 1500] StepTime: 0.59 sec Speed: 2647.43 targets/s Total_targets: 1104845
+INFO:root:[STEP 1530] StepTime: 0.61 sec Speed: 2494.25 targets/s Total_targets: 1104845
+INFO:root:[STEP 1560] StepTime: 0.60 sec Speed: 2627.90 targets/s Total_targets: 1104845
+INFO:root:[STEP 1590] StepTime: 0.62 sec Speed: 2495.64 targets/s Total_targets: 1104845
+INFO:root:[STEP 1620] StepTime: 0.61 sec Speed: 2526.23 targets/s Total_targets: 1104845
+INFO:root:[STEP 1650] StepTime: 0.62 sec Speed: 2467.51 targets/s Total_targets: 1104845
+INFO:root:[STEP 1680] StepTime: 0.61 sec Speed: 2578.69 targets/s Total_targets: 1104845
+INFO:root:[STEP 1710] StepTime: 0.60 sec Speed: 2580.00 targets/s Total_targets: 1104845
+INFO:root:[STEP 1740] StepTime: 0.61 sec Speed: 2519.11 targets/s Total_targets: 1104845
+INFO:root:[STEP 1770] StepTime: 0.65 sec Speed: 2444.29 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 5 STEP 1785] Learning_rate: 0.5000 Dev_acc: 0.9274 Train_acc: 0.9368
+INFO:root:[CHECKPOINT 5 STEP 1785] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 1800] StepTime: 0.60 sec Speed: 2589.08 targets/s Total_targets: 1104845
+INFO:root:[STEP 1830] StepTime: 0.63 sec Speed: 2437.18 targets/s Total_targets: 1104845
+INFO:root:[STEP 1860] StepTime: 0.61 sec Speed: 2493.16 targets/s Total_targets: 1104845
+INFO:root:[STEP 1890] StepTime: 0.59 sec Speed: 2586.02 targets/s Total_targets: 1104845
+INFO:root:[STEP 1920] StepTime: 0.58 sec Speed: 2681.48 targets/s Total_targets: 1104845
+INFO:root:[STEP 1950] StepTime: 0.62 sec Speed: 2483.69 targets/s Total_targets: 1104845
+INFO:root:[STEP 1980] StepTime: 0.62 sec Speed: 2500.31 targets/s Total_targets: 1104845
+INFO:root:[STEP 2010] StepTime: 0.59 sec Speed: 2598.75 targets/s Total_targets: 1104845
+INFO:root:[STEP 2040] StepTime: 0.59 sec Speed: 2599.91 targets/s Total_targets: 1104845
+INFO:root:[STEP 2070] StepTime: 0.60 sec Speed: 2553.05 targets/s Total_targets: 1104845
+INFO:root:[STEP 2100] StepTime: 0.59 sec Speed: 2605.87 targets/s Total_targets: 1104845
+INFO:root:[STEP 2130] StepTime: 0.60 sec Speed: 2611.42 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 6 STEP 2142] Learning_rate: 0.5000 Dev_acc: 0.9327 Train_acc: 0.9426
+INFO:root:[CHECKPOINT 6 STEP 2142] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 2160] StepTime: 0.61 sec Speed: 2515.95 targets/s Total_targets: 1104845
+INFO:root:[STEP 2190] StepTime: 0.61 sec Speed: 2488.93 targets/s Total_targets: 1104845
+INFO:root:[STEP 2220] StepTime: 0.61 sec Speed: 2554.92 targets/s Total_targets: 1104845
+INFO:root:[STEP 2250] StepTime: 0.60 sec Speed: 2526.53 targets/s Total_targets: 1104845
+INFO:root:[STEP 2280] StepTime: 0.63 sec Speed: 2414.59 targets/s Total_targets: 1104845
+INFO:root:[STEP 2310] StepTime: 0.58 sec Speed: 2637.14 targets/s Total_targets: 1104845
+INFO:root:[STEP 2340] StepTime: 0.60 sec Speed: 2590.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 2370] StepTime: 0.63 sec Speed: 2499.32 targets/s Total_targets: 1104845
+INFO:root:[STEP 2400] StepTime: 0.61 sec Speed: 2515.97 targets/s Total_targets: 1104845
+INFO:root:[STEP 2430] StepTime: 0.59 sec Speed: 2583.37 targets/s Total_targets: 1104845
+INFO:root:[STEP 2460] StepTime: 0.62 sec Speed: 2488.23 targets/s Total_targets: 1104845
+INFO:root:[STEP 2490] StepTime: 0.60 sec Speed: 2593.52 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 7 STEP 2499] Learning_rate: 0.5000 Dev_acc: 0.9357 Train_acc: 0.9490
+INFO:root:[CHECKPOINT 7 STEP 2499] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 2520] StepTime: 0.60 sec Speed: 2571.12 targets/s Total_targets: 1104845
+INFO:root:[STEP 2550] StepTime: 0.59 sec Speed: 2562.11 targets/s Total_targets: 1104845
+INFO:root:[STEP 2580] StepTime: 0.58 sec Speed: 2667.73 targets/s Total_targets: 1104845
+INFO:root:[STEP 2610] StepTime: 0.60 sec Speed: 2580.11 targets/s Total_targets: 1104845
+INFO:root:[STEP 2640] StepTime: 0.61 sec Speed: 2574.51 targets/s Total_targets: 1104845
+INFO:root:[STEP 2670] StepTime: 0.61 sec Speed: 2559.55 targets/s Total_targets: 1104845
+INFO:root:[STEP 2700] StepTime: 0.64 sec Speed: 2459.19 targets/s Total_targets: 1104845
+INFO:root:[STEP 2730] StepTime: 0.62 sec Speed: 2472.70 targets/s Total_targets: 1104845
+INFO:root:[STEP 2760] StepTime: 0.59 sec Speed: 2598.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 2790] StepTime: 0.62 sec Speed: 2513.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 2820] StepTime: 0.59 sec Speed: 2613.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 2850] StepTime: 0.58 sec Speed: 2675.03 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 8 STEP 2856] Learning_rate: 0.5000 Dev_acc: 0.9388 Train_acc: 0.9546
+INFO:root:[CHECKPOINT 8 STEP 2856] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 2880] StepTime: 0.62 sec Speed: 2507.21 targets/s Total_targets: 1104845
+INFO:root:[STEP 2910] StepTime: 0.59 sec Speed: 2611.08 targets/s Total_targets: 1104845
+INFO:root:[STEP 2940] StepTime: 0.59 sec Speed: 2601.60 targets/s Total_targets: 1104845
+INFO:root:[STEP 2970] StepTime: 0.60 sec Speed: 2595.36 targets/s Total_targets: 1104845
+INFO:root:[STEP 3000] StepTime: 0.60 sec Speed: 2572.54 targets/s Total_targets: 1104845
+INFO:root:[STEP 3030] StepTime: 0.58 sec Speed: 2659.82 targets/s Total_targets: 1104845
+INFO:root:[STEP 3060] StepTime: 0.61 sec Speed: 2565.95 targets/s Total_targets: 1104845
+INFO:root:[STEP 3090] StepTime: 0.59 sec Speed: 2610.60 targets/s Total_targets: 1104845
+INFO:root:[STEP 3120] StepTime: 0.63 sec Speed: 2502.97 targets/s Total_targets: 1104845
+INFO:root:[STEP 3150] StepTime: 0.61 sec Speed: 2579.67 targets/s Total_targets: 1104845
+INFO:root:[STEP 3180] StepTime: 0.60 sec Speed: 2587.67 targets/s Total_targets: 1104845
+INFO:root:[STEP 3210] StepTime: 0.60 sec Speed: 2579.45 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 9 STEP 3213] Learning_rate: 0.5000 Dev_acc: 0.9423 Train_acc: 0.9576
+INFO:root:[CHECKPOINT 9 STEP 3213] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 3240] StepTime: 0.59 sec Speed: 2609.90 targets/s Total_targets: 1104845
+INFO:root:[STEP 3270] StepTime: 0.60 sec Speed: 2572.86 targets/s Total_targets: 1104845
+INFO:root:[STEP 3300] StepTime: 0.60 sec Speed: 2586.10 targets/s Total_targets: 1104845
+INFO:root:[STEP 3330] StepTime: 0.59 sec Speed: 2593.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 3360] StepTime: 0.60 sec Speed: 2602.06 targets/s Total_targets: 1104845
+INFO:root:[STEP 3390] StepTime: 0.59 sec Speed: 2590.22 targets/s Total_targets: 1104845
+INFO:root:[STEP 3420] StepTime: 0.62 sec Speed: 2542.05 targets/s Total_targets: 1104845
+INFO:root:[STEP 3450] StepTime: 0.57 sec Speed: 2691.75 targets/s Total_targets: 1104845
+INFO:root:[STEP 3480] StepTime: 0.58 sec Speed: 2599.95 targets/s Total_targets: 1104845
+INFO:root:[STEP 3510] StepTime: 0.58 sec Speed: 2659.49 targets/s Total_targets: 1104845
+INFO:root:[STEP 3540] StepTime: 0.61 sec Speed: 2503.00 targets/s Total_targets: 1104845
+INFO:root:[STEP 3570] StepTime: 0.59 sec Speed: 2619.01 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 10 STEP 3570] Learning_rate: 0.5000 Dev_acc: 0.9447 Train_acc: 0.9619
+INFO:root:[CHECKPOINT 10 STEP 3570] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 3600] StepTime: 0.59 sec Speed: 2598.62 targets/s Total_targets: 1104845
+INFO:root:[STEP 3630] StepTime: 0.60 sec Speed: 2589.62 targets/s Total_targets: 1104845
+INFO:root:[STEP 3660] StepTime: 0.61 sec Speed: 2579.69 targets/s Total_targets: 1104845
+INFO:root:[STEP 3690] StepTime: 0.59 sec Speed: 2609.70 targets/s Total_targets: 1104845
+INFO:root:[STEP 3720] StepTime: 0.59 sec Speed: 2629.26 targets/s Total_targets: 1104845
+INFO:root:[STEP 3750] StepTime: 0.61 sec Speed: 2564.56 targets/s Total_targets: 1104845
+INFO:root:[STEP 3780] StepTime: 0.57 sec Speed: 2698.50 targets/s Total_targets: 1104845
+INFO:root:[STEP 3810] StepTime: 0.59 sec Speed: 2629.64 targets/s Total_targets: 1104845
+INFO:root:[STEP 3840] StepTime: 0.61 sec Speed: 2556.10 targets/s Total_targets: 1104845
+INFO:root:[STEP 3870] StepTime: 0.59 sec Speed: 2609.44 targets/s Total_targets: 1104845
+INFO:root:[STEP 3900] StepTime: 0.56 sec Speed: 2713.15 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 11 STEP 3927] Learning_rate: 0.5000 Dev_acc: 0.9454 Train_acc: 0.9654
+INFO:root:[CHECKPOINT 11 STEP 3927] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 3930] StepTime: 0.58 sec Speed: 2616.31 targets/s Total_targets: 1104845
+INFO:root:[STEP 3960] StepTime: 0.58 sec Speed: 2695.81 targets/s Total_targets: 1104845
+INFO:root:[STEP 3990] StepTime: 0.61 sec Speed: 2552.18 targets/s Total_targets: 1104845
+INFO:root:[STEP 4020] StepTime: 0.61 sec Speed: 2565.48 targets/s Total_targets: 1104845
+INFO:root:[STEP 4050] StepTime: 0.58 sec Speed: 2657.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 4080] StepTime: 0.61 sec Speed: 2541.68 targets/s Total_targets: 1104845
+INFO:root:[STEP 4110] StepTime: 0.56 sec Speed: 2722.59 targets/s Total_targets: 1104845
+INFO:root:[STEP 4140] StepTime: 0.60 sec Speed: 2560.44 targets/s Total_targets: 1104845
+INFO:root:[STEP 4170] StepTime: 0.62 sec Speed: 2491.67 targets/s Total_targets: 1104845
+INFO:root:[STEP 4200] StepTime: 0.60 sec Speed: 2606.38 targets/s Total_targets: 1104845
+INFO:root:[STEP 4230] StepTime: 0.59 sec Speed: 2557.16 targets/s Total_targets: 1104845
+INFO:root:[STEP 4260] StepTime: 0.60 sec Speed: 2588.68 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 12 STEP 4284] Learning_rate: 0.5000 Dev_acc: 0.9475 Train_acc: 0.9679
+INFO:root:[CHECKPOINT 12 STEP 4284] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 4290] StepTime: 0.61 sec Speed: 2530.82 targets/s Total_targets: 1104845
+INFO:root:[STEP 4320] StepTime: 0.58 sec Speed: 2647.52 targets/s Total_targets: 1104845
+INFO:root:[STEP 4350] StepTime: 0.62 sec Speed: 2495.91 targets/s Total_targets: 1104845
+INFO:root:[STEP 4380] StepTime: 0.62 sec Speed: 2492.13 targets/s Total_targets: 1104845
+INFO:root:[STEP 4410] StepTime: 0.61 sec Speed: 2565.75 targets/s Total_targets: 1104845
+INFO:root:[STEP 4440] StepTime: 0.59 sec Speed: 2655.51 targets/s Total_targets: 1104845
+INFO:root:[STEP 4470] StepTime: 0.61 sec Speed: 2565.30 targets/s Total_targets: 1104845
+INFO:root:[STEP 4500] StepTime: 0.59 sec Speed: 2661.91 targets/s Total_targets: 1104845
+INFO:root:[STEP 4530] StepTime: 0.63 sec Speed: 2502.40 targets/s Total_targets: 1104845
+INFO:root:[STEP 4560] StepTime: 0.58 sec Speed: 2691.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 4590] StepTime: 0.61 sec Speed: 2524.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 4620] StepTime: 0.57 sec Speed: 2670.65 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 13 STEP 4641] Learning_rate: 0.5000 Dev_acc: 0.9475 Train_acc: 0.9712
+INFO:root:[CHECKPOINT 13 STEP 4641] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 4650] StepTime: 0.64 sec Speed: 2463.95 targets/s Total_targets: 1104845
+INFO:root:[STEP 4680] StepTime: 0.58 sec Speed: 2668.24 targets/s Total_targets: 1104845
+INFO:root:[STEP 4710] StepTime: 0.60 sec Speed: 2575.78 targets/s Total_targets: 1104845
+INFO:root:[STEP 4740] StepTime: 0.60 sec Speed: 2569.85 targets/s Total_targets: 1104845
+INFO:root:[STEP 4770] StepTime: 0.59 sec Speed: 2563.69 targets/s Total_targets: 1104845
+INFO:root:[STEP 4800] StepTime: 0.61 sec Speed: 2531.62 targets/s Total_targets: 1104845
+INFO:root:[STEP 4830] StepTime: 0.58 sec Speed: 2682.92 targets/s Total_targets: 1104845
+INFO:root:[STEP 4860] StepTime: 0.60 sec Speed: 2541.86 targets/s Total_targets: 1104845
+INFO:root:[STEP 4890] StepTime: 0.61 sec Speed: 2544.16 targets/s Total_targets: 1104845
+INFO:root:[STEP 4920] StepTime: 0.60 sec Speed: 2549.15 targets/s Total_targets: 1104845
+INFO:root:[STEP 4950] StepTime: 0.63 sec Speed: 2471.82 targets/s Total_targets: 1104845
+INFO:root:[STEP 4980] StepTime: 0.58 sec Speed: 2675.81 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 14 STEP 4998] Learning_rate: 0.5000 Dev_acc: 0.9466 Train_acc: 0.9739
+INFO:root:[STEP 5010] StepTime: 0.60 sec Speed: 2589.37 targets/s Total_targets: 1104845
+INFO:root:[STEP 5040] StepTime: 0.62 sec Speed: 2528.22 targets/s Total_targets: 1104845
+INFO:root:[STEP 5070] StepTime: 0.57 sec Speed: 2762.19 targets/s Total_targets: 1104845
+INFO:root:[STEP 5100] StepTime: 0.60 sec Speed: 2548.91 targets/s Total_targets: 1104845
+INFO:root:[STEP 5130] StepTime: 0.62 sec Speed: 2520.30 targets/s Total_targets: 1104845
+INFO:root:[STEP 5160] StepTime: 0.61 sec Speed: 2550.36 targets/s Total_targets: 1104845
+INFO:root:[STEP 5190] StepTime: 0.62 sec Speed: 2477.70 targets/s Total_targets: 1104845
+INFO:root:[STEP 5220] StepTime: 0.61 sec Speed: 2588.94 targets/s Total_targets: 1104845
+INFO:root:[STEP 5250] StepTime: 0.61 sec Speed: 2513.56 targets/s Total_targets: 1104845
+INFO:root:[STEP 5280] StepTime: 0.59 sec Speed: 2590.68 targets/s Total_targets: 1104845
+INFO:root:[STEP 5310] StepTime: 0.60 sec Speed: 2578.38 targets/s Total_targets: 1104845
+INFO:root:[STEP 5340] StepTime: 0.61 sec Speed: 2519.97 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 15 STEP 5355] Learning_rate: 0.5000 Dev_acc: 0.9495 Train_acc: 0.9757
+INFO:root:[CHECKPOINT 15 STEP 5355] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 5370] StepTime: 0.60 sec Speed: 2568.43 targets/s Total_targets: 1104845
+INFO:root:[STEP 5400] StepTime: 0.62 sec Speed: 2523.85 targets/s Total_targets: 1104845
+INFO:root:[STEP 5430] StepTime: 0.59 sec Speed: 2573.66 targets/s Total_targets: 1104845
+INFO:root:[STEP 5460] StepTime: 0.60 sec Speed: 2560.88 targets/s Total_targets: 1104845
+INFO:root:[STEP 5490] StepTime: 0.59 sec Speed: 2632.38 targets/s Total_targets: 1104845
+INFO:root:[STEP 5520] StepTime: 0.60 sec Speed: 2556.35 targets/s Total_targets: 1104845
+INFO:root:[STEP 5550] StepTime: 0.60 sec Speed: 2551.34 targets/s Total_targets: 1104845
+INFO:root:[STEP 5580] StepTime: 0.61 sec Speed: 2564.32 targets/s Total_targets: 1104845
+INFO:root:[STEP 5610] StepTime: 0.61 sec Speed: 2523.61 targets/s Total_targets: 1104845
+INFO:root:[STEP 5640] StepTime: 0.57 sec Speed: 2669.06 targets/s Total_targets: 1104845
+INFO:root:[STEP 5670] StepTime: 0.61 sec Speed: 2563.52 targets/s Total_targets: 1104845
+INFO:root:[STEP 5700] StepTime: 0.62 sec Speed: 2503.02 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 16 STEP 5712] Learning_rate: 0.5000 Dev_acc: 0.9491 Train_acc: 0.9781
+INFO:root:[STEP 5730] StepTime: 0.60 sec Speed: 2553.63 targets/s Total_targets: 1104845
+INFO:root:[STEP 5760] StepTime: 0.60 sec Speed: 2561.19 targets/s Total_targets: 1104845
+INFO:root:[STEP 5790] StepTime: 0.61 sec Speed: 2520.40 targets/s Total_targets: 1104845
+INFO:root:[STEP 5820] StepTime: 0.59 sec Speed: 2631.64 targets/s Total_targets: 1104845
+INFO:root:[STEP 5850] StepTime: 0.63 sec Speed: 2432.55 targets/s Total_targets: 1104845
+INFO:root:[STEP 5880] StepTime: 0.63 sec Speed: 2444.24 targets/s Total_targets: 1104845
+INFO:root:[STEP 5910] StepTime: 0.61 sec Speed: 2507.61 targets/s Total_targets: 1104845
+INFO:root:[STEP 5940] StepTime: 0.60 sec Speed: 2583.24 targets/s Total_targets: 1104845
+INFO:root:[STEP 5970] StepTime: 0.60 sec Speed: 2568.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 6000] StepTime: 0.60 sec Speed: 2608.52 targets/s Total_targets: 1104845
+INFO:root:[STEP 6030] StepTime: 0.59 sec Speed: 2602.65 targets/s Total_targets: 1104845
+INFO:root:[STEP 6060] StepTime: 0.61 sec Speed: 2579.94 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 17 STEP 6069] Learning_rate: 0.5000 Dev_acc: 0.9506 Train_acc: 0.9793
+INFO:root:[CHECKPOINT 17 STEP 6069] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 6090] StepTime: 0.60 sec Speed: 2582.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 6120] StepTime: 0.59 sec Speed: 2609.71 targets/s Total_targets: 1104845
+INFO:root:[STEP 6150] StepTime: 0.58 sec Speed: 2688.28 targets/s Total_targets: 1104845
+INFO:root:[STEP 6180] StepTime: 0.60 sec Speed: 2566.93 targets/s Total_targets: 1104845
+INFO:root:[STEP 6210] StepTime: 0.60 sec Speed: 2555.85 targets/s Total_targets: 1104845
+INFO:root:[STEP 6240] StepTime: 0.61 sec Speed: 2568.67 targets/s Total_targets: 1104845
+INFO:root:[STEP 6270] StepTime: 0.60 sec Speed: 2618.27 targets/s Total_targets: 1104845
+INFO:root:[STEP 6300] StepTime: 0.61 sec Speed: 2525.45 targets/s Total_targets: 1104845
+INFO:root:[STEP 6330] StepTime: 0.59 sec Speed: 2633.71 targets/s Total_targets: 1104845
+INFO:root:[STEP 6360] StepTime: 0.59 sec Speed: 2593.63 targets/s Total_targets: 1104845
+INFO:root:[STEP 6390] StepTime: 0.59 sec Speed: 2661.84 targets/s Total_targets: 1104845
+INFO:root:[STEP 6420] StepTime: 0.62 sec Speed: 2526.55 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 18 STEP 6426] Learning_rate: 0.5000 Dev_acc: 0.9513 Train_acc: 0.9814
+INFO:root:[CHECKPOINT 18 STEP 6426] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 6450] StepTime: 0.58 sec Speed: 2722.05 targets/s Total_targets: 1104845
+INFO:root:[STEP 6480] StepTime: 0.61 sec Speed: 2509.54 targets/s Total_targets: 1104845
+INFO:root:[STEP 6510] StepTime: 0.60 sec Speed: 2540.88 targets/s Total_targets: 1104845
+INFO:root:[STEP 6540] StepTime: 0.61 sec Speed: 2582.47 targets/s Total_targets: 1104845
+INFO:root:[STEP 6570] StepTime: 0.59 sec Speed: 2597.56 targets/s Total_targets: 1104845
+INFO:root:[STEP 6600] StepTime: 0.60 sec Speed: 2555.28 targets/s Total_targets: 1104845
+INFO:root:[STEP 6630] StepTime: 0.61 sec Speed: 2518.12 targets/s Total_targets: 1104845
+INFO:root:[STEP 6660] StepTime: 0.60 sec Speed: 2582.84 targets/s Total_targets: 1104845
+INFO:root:[STEP 6690] StepTime: 0.61 sec Speed: 2571.84 targets/s Total_targets: 1104845
+INFO:root:[STEP 6720] StepTime: 0.62 sec Speed: 2514.36 targets/s Total_targets: 1104845
+INFO:root:[STEP 6750] StepTime: 0.62 sec Speed: 2483.59 targets/s Total_targets: 1104845
+INFO:root:[STEP 6780] StepTime: 0.65 sec Speed: 2349.22 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 19 STEP 6783] Learning_rate: 0.5000 Dev_acc: 0.9510 Train_acc: 0.9830
+INFO:root:[STEP 6810] StepTime: 0.58 sec Speed: 2650.90 targets/s Total_targets: 1104845
+INFO:root:[STEP 6840] StepTime: 0.60 sec Speed: 2541.16 targets/s Total_targets: 1104845
+INFO:root:[STEP 6870] StepTime: 0.63 sec Speed: 2428.68 targets/s Total_targets: 1104845
+INFO:root:[STEP 6900] StepTime: 0.60 sec Speed: 2530.10 targets/s Total_targets: 1104845
+INFO:root:[STEP 6930] StepTime: 0.62 sec Speed: 2505.30 targets/s Total_targets: 1104845
+INFO:root:[STEP 6960] StepTime: 0.62 sec Speed: 2488.27 targets/s Total_targets: 1104845
+INFO:root:[STEP 6990] StepTime: 0.59 sec Speed: 2607.78 targets/s Total_targets: 1104845
+INFO:root:[STEP 7020] StepTime: 0.60 sec Speed: 2526.67 targets/s Total_targets: 1104845
+INFO:root:[STEP 7050] StepTime: 0.60 sec Speed: 2598.60 targets/s Total_targets: 1104845
+INFO:root:[STEP 7080] StepTime: 0.59 sec Speed: 2613.32 targets/s Total_targets: 1104845
+INFO:root:[STEP 7110] StepTime: 0.60 sec Speed: 2552.66 targets/s Total_targets: 1104845
+INFO:root:[STEP 7140] StepTime: 0.65 sec Speed: 2435.01 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 20 STEP 7140] Learning_rate: 0.5000 Dev_acc: 0.9508 Train_acc: 0.9842
+INFO:root:[STEP 7170] StepTime: 0.59 sec Speed: 2614.48 targets/s Total_targets: 1104845
+INFO:root:[STEP 7200] StepTime: 0.62 sec Speed: 2498.63 targets/s Total_targets: 1104845
+INFO:root:[STEP 7230] StepTime: 0.58 sec Speed: 2655.17 targets/s Total_targets: 1104845
+INFO:root:[STEP 7260] StepTime: 0.62 sec Speed: 2494.79 targets/s Total_targets: 1104845
+INFO:root:[STEP 7290] StepTime: 0.60 sec Speed: 2565.96 targets/s Total_targets: 1104845
+INFO:root:[STEP 7320] StepTime: 0.63 sec Speed: 2491.43 targets/s Total_targets: 1104845
+INFO:root:[STEP 7350] StepTime: 0.61 sec Speed: 2473.61 targets/s Total_targets: 1104845
+INFO:root:[STEP 7380] StepTime: 0.57 sec Speed: 2714.44 targets/s Total_targets: 1104845
+INFO:root:[STEP 7410] StepTime: 0.60 sec Speed: 2600.52 targets/s Total_targets: 1104845
+INFO:root:[STEP 7440] StepTime: 0.61 sec Speed: 2541.10 targets/s Total_targets: 1104845
+INFO:root:[STEP 7470] StepTime: 0.59 sec Speed: 2652.58 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 21 STEP 7497] Learning_rate: 0.5000 Dev_acc: 0.9522 Train_acc: 0.9863
+INFO:root:[CHECKPOINT 21 STEP 7497] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 7500] StepTime: 0.59 sec Speed: 2600.16 targets/s Total_targets: 1104845
+INFO:root:[STEP 7530] StepTime: 0.60 sec Speed: 2575.65 targets/s Total_targets: 1104845
+INFO:root:[STEP 7560] StepTime: 0.59 sec Speed: 2635.69 targets/s Total_targets: 1104845
+INFO:root:[STEP 7590] StepTime: 0.61 sec Speed: 2490.50 targets/s Total_targets: 1104845
+INFO:root:[STEP 7620] StepTime: 0.59 sec Speed: 2618.18 targets/s Total_targets: 1104845
+INFO:root:[STEP 7650] StepTime: 0.59 sec Speed: 2647.19 targets/s Total_targets: 1104845
+INFO:root:[STEP 7680] StepTime: 0.61 sec Speed: 2555.58 targets/s Total_targets: 1104845
+INFO:root:[STEP 7710] StepTime: 0.59 sec Speed: 2618.93 targets/s Total_targets: 1104845
+INFO:root:[STEP 7740] StepTime: 0.59 sec Speed: 2639.42 targets/s Total_targets: 1104845
+INFO:root:[STEP 7770] StepTime: 0.61 sec Speed: 2508.54 targets/s Total_targets: 1104845
+INFO:root:[STEP 7800] StepTime: 0.60 sec Speed: 2584.43 targets/s Total_targets: 1104845
+INFO:root:[STEP 7830] StepTime: 0.61 sec Speed: 2516.74 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 22 STEP 7854] Learning_rate: 0.5000 Dev_acc: 0.9516 Train_acc: 0.9875
+INFO:root:[STEP 7860] StepTime: 0.60 sec Speed: 2576.06 targets/s Total_targets: 1104845
+INFO:root:[STEP 7890] StepTime: 0.62 sec Speed: 2493.86 targets/s Total_targets: 1104845
+INFO:root:[STEP 7920] StepTime: 0.62 sec Speed: 2530.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 7950] StepTime: 0.63 sec Speed: 2489.85 targets/s Total_targets: 1104845
+INFO:root:[STEP 7980] StepTime: 0.61 sec Speed: 2581.26 targets/s Total_targets: 1104845
+INFO:root:[STEP 8010] StepTime: 0.59 sec Speed: 2652.29 targets/s Total_targets: 1104845
+INFO:root:[STEP 8040] StepTime: 0.63 sec Speed: 2486.31 targets/s Total_targets: 1104845
+INFO:root:[STEP 8070] StepTime: 0.62 sec Speed: 2514.11 targets/s Total_targets: 1104845
+INFO:root:[STEP 8100] StepTime: 0.64 sec Speed: 2437.43 targets/s Total_targets: 1104845
+INFO:root:[STEP 8130] StepTime: 0.60 sec Speed: 2569.06 targets/s Total_targets: 1104845
+INFO:root:[STEP 8160] StepTime: 0.62 sec Speed: 2490.58 targets/s Total_targets: 1104845
+INFO:root:[STEP 8190] StepTime: 0.58 sec Speed: 2693.50 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 23 STEP 8211] Learning_rate: 0.5000 Dev_acc: 0.9524 Train_acc: 0.9878
+INFO:root:[CHECKPOINT 23 STEP 8211] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 8220] StepTime: 0.59 sec Speed: 2613.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 8250] StepTime: 0.62 sec Speed: 2521.27 targets/s Total_targets: 1104845
+INFO:root:[STEP 8280] StepTime: 0.61 sec Speed: 2525.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 8310] StepTime: 0.61 sec Speed: 2574.70 targets/s Total_targets: 1104845
+INFO:root:[STEP 8340] StepTime: 0.61 sec Speed: 2537.79 targets/s Total_targets: 1104845
+INFO:root:[STEP 8370] StepTime: 0.61 sec Speed: 2539.74 targets/s Total_targets: 1104845
+INFO:root:[STEP 8400] StepTime: 0.58 sec Speed: 2594.73 targets/s Total_targets: 1104845
+INFO:root:[STEP 8430] StepTime: 0.61 sec Speed: 2530.01 targets/s Total_targets: 1104845
+INFO:root:[STEP 8460] StepTime: 0.61 sec Speed: 2573.62 targets/s Total_targets: 1104845
+INFO:root:[STEP 8490] StepTime: 0.62 sec Speed: 2519.26 targets/s Total_targets: 1104845
+INFO:root:[STEP 8520] StepTime: 0.62 sec Speed: 2520.73 targets/s Total_targets: 1104845
+INFO:root:[STEP 8550] StepTime: 0.58 sec Speed: 2645.42 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 24 STEP 8568] Learning_rate: 0.5000 Dev_acc: 0.9527 Train_acc: 0.9893
+INFO:root:[CHECKPOINT 24 STEP 8568] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 8580] StepTime: 0.61 sec Speed: 2533.49 targets/s Total_targets: 1104845
+INFO:root:[STEP 8610] StepTime: 0.64 sec Speed: 2443.33 targets/s Total_targets: 1104845
+INFO:root:[STEP 8640] StepTime: 0.58 sec Speed: 2638.72 targets/s Total_targets: 1104845
+INFO:root:[STEP 8670] StepTime: 0.61 sec Speed: 2506.03 targets/s Total_targets: 1104845
+INFO:root:[STEP 8700] StepTime: 0.61 sec Speed: 2537.63 targets/s Total_targets: 1104845
+INFO:root:[STEP 8730] StepTime: 0.62 sec Speed: 2550.23 targets/s Total_targets: 1104845
+INFO:root:[STEP 8760] StepTime: 0.57 sec Speed: 2666.75 targets/s Total_targets: 1104845
+INFO:root:[STEP 8790] StepTime: 0.60 sec Speed: 2593.44 targets/s Total_targets: 1104845
+INFO:root:[STEP 8820] StepTime: 0.58 sec Speed: 2617.06 targets/s Total_targets: 1104845
+INFO:root:[STEP 8850] StepTime: 0.65 sec Speed: 2407.72 targets/s Total_targets: 1104845
+INFO:root:[STEP 8880] StepTime: 0.61 sec Speed: 2573.22 targets/s Total_targets: 1104845
+INFO:root:[STEP 8910] StepTime: 0.64 sec Speed: 2435.87 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 25 STEP 8925] Learning_rate: 0.5000 Dev_acc: 0.9520 Train_acc: 0.9904
+INFO:root:[STEP 8940] StepTime: 0.59 sec Speed: 2628.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 8970] StepTime: 0.60 sec Speed: 2530.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 9000] StepTime: 0.59 sec Speed: 2625.21 targets/s Total_targets: 1104845
+INFO:root:[STEP 9030] StepTime: 0.60 sec Speed: 2570.45 targets/s Total_targets: 1104845
+INFO:root:[STEP 9060] StepTime: 0.61 sec Speed: 2547.91 targets/s Total_targets: 1104845
+INFO:root:[STEP 9090] StepTime: 0.59 sec Speed: 2675.23 targets/s Total_targets: 1104845
+INFO:root:[STEP 9120] StepTime: 0.61 sec Speed: 2536.81 targets/s Total_targets: 1104845
+INFO:root:[STEP 9150] StepTime: 0.61 sec Speed: 2546.47 targets/s Total_targets: 1104845
+INFO:root:[STEP 9180] StepTime: 0.59 sec Speed: 2644.59 targets/s Total_targets: 1104845
+INFO:root:[STEP 9210] StepTime: 0.58 sec Speed: 2665.72 targets/s Total_targets: 1104845
+INFO:root:[STEP 9240] StepTime: 0.59 sec Speed: 2589.71 targets/s Total_targets: 1104845
+INFO:root:[STEP 9270] StepTime: 0.59 sec Speed: 2601.63 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 26 STEP 9282] Learning_rate: 0.5000 Dev_acc: 0.9521 Train_acc: 0.9910
+INFO:root:[STEP 9300] StepTime: 0.61 sec Speed: 2576.25 targets/s Total_targets: 1104845
+INFO:root:[STEP 9330] StepTime: 0.59 sec Speed: 2569.29 targets/s Total_targets: 1104845
+INFO:root:[STEP 9360] StepTime: 0.59 sec Speed: 2590.38 targets/s Total_targets: 1104845
+INFO:root:[STEP 9390] StepTime: 0.57 sec Speed: 2761.33 targets/s Total_targets: 1104845
+INFO:root:[STEP 9420] StepTime: 0.60 sec Speed: 2540.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 9450] StepTime: 0.62 sec Speed: 2527.53 targets/s Total_targets: 1104845
+INFO:root:[STEP 9480] StepTime: 0.62 sec Speed: 2481.55 targets/s Total_targets: 1104845
+INFO:root:[STEP 9510] StepTime: 0.63 sec Speed: 2467.38 targets/s Total_targets: 1104845
+INFO:root:[STEP 9540] StepTime: 0.61 sec Speed: 2580.02 targets/s Total_targets: 1104845
+INFO:root:[STEP 9570] StepTime: 0.58 sec Speed: 2668.30 targets/s Total_targets: 1104845
+INFO:root:[STEP 9600] StepTime: 0.64 sec Speed: 2421.95 targets/s Total_targets: 1104845
+INFO:root:[STEP 9630] StepTime: 0.62 sec Speed: 2479.44 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 27 STEP 9639] Learning_rate: 0.5000 Dev_acc: 0.9530 Train_acc: 0.9920
+INFO:root:[CHECKPOINT 27 STEP 9639] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 9660] StepTime: 0.63 sec Speed: 2462.74 targets/s Total_targets: 1104845
+INFO:root:[STEP 9690] StepTime: 0.56 sec Speed: 2759.77 targets/s Total_targets: 1104845
+INFO:root:[STEP 9720] StepTime: 0.61 sec Speed: 2552.51 targets/s Total_targets: 1104845
+INFO:root:[STEP 9750] StepTime: 0.62 sec Speed: 2531.33 targets/s Total_targets: 1104845
+INFO:root:[STEP 9780] StepTime: 0.57 sec Speed: 2705.44 targets/s Total_targets: 1104845
+INFO:root:[STEP 9810] StepTime: 0.66 sec Speed: 2388.17 targets/s Total_targets: 1104845
+INFO:root:[STEP 9840] StepTime: 0.61 sec Speed: 2523.27 targets/s Total_targets: 1104845
+INFO:root:[STEP 9870] StepTime: 0.63 sec Speed: 2486.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 9900] StepTime: 0.59 sec Speed: 2602.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 9930] StepTime: 0.58 sec Speed: 2675.51 targets/s Total_targets: 1104845
+INFO:root:[STEP 9960] StepTime: 0.61 sec Speed: 2504.88 targets/s Total_targets: 1104845
+INFO:root:[STEP 9990] StepTime: 0.62 sec Speed: 2503.40 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 28 STEP 9996] Learning_rate: 0.5000 Dev_acc: 0.9519 Train_acc: 0.9926
+INFO:root:[STEP 10020] StepTime: 0.61 sec Speed: 2542.51 targets/s Total_targets: 1104845
+INFO:root:[STEP 10050] StepTime: 0.59 sec Speed: 2629.43 targets/s Total_targets: 1104845
+INFO:root:[STEP 10080] StepTime: 0.59 sec Speed: 2591.12 targets/s Total_targets: 1104845
+INFO:root:[STEP 10110] StepTime: 0.58 sec Speed: 2642.35 targets/s Total_targets: 1104845
+INFO:root:[STEP 10140] StepTime: 0.61 sec Speed: 2547.72 targets/s Total_targets: 1104845
+INFO:root:[STEP 10170] StepTime: 0.60 sec Speed: 2589.57 targets/s Total_targets: 1104845
+INFO:root:[STEP 10200] StepTime: 0.64 sec Speed: 2470.58 targets/s Total_targets: 1104845
+INFO:root:[STEP 10230] StepTime: 0.62 sec Speed: 2487.92 targets/s Total_targets: 1104845
+INFO:root:[STEP 10260] StepTime: 0.59 sec Speed: 2604.04 targets/s Total_targets: 1104845
+INFO:root:[STEP 10290] StepTime: 0.59 sec Speed: 2585.20 targets/s Total_targets: 1104845
+INFO:root:[STEP 10320] StepTime: 0.60 sec Speed: 2592.11 targets/s Total_targets: 1104845
+INFO:root:[STEP 10350] StepTime: 0.61 sec Speed: 2553.82 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 29 STEP 10353] Learning_rate: 0.5000 Dev_acc: 0.9531 Train_acc: 0.9932
+INFO:root:[CHECKPOINT 29 STEP 10353] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 10380] StepTime: 0.60 sec Speed: 2611.57 targets/s Total_targets: 1104845
+INFO:root:[STEP 10410] StepTime: 0.61 sec Speed: 2522.67 targets/s Total_targets: 1104845
+INFO:root:[STEP 10440] StepTime: 0.60 sec Speed: 2573.85 targets/s Total_targets: 1104845
+INFO:root:[STEP 10470] StepTime: 0.62 sec Speed: 2509.62 targets/s Total_targets: 1104845
+INFO:root:[STEP 10500] StepTime: 0.63 sec Speed: 2469.00 targets/s Total_targets: 1104845
+INFO:root:[STEP 10530] StepTime: 0.59 sec Speed: 2652.10 targets/s Total_targets: 1104845
+INFO:root:[STEP 10560] StepTime: 0.58 sec Speed: 2646.85 targets/s Total_targets: 1104845
+INFO:root:[STEP 10590] StepTime: 0.59 sec Speed: 2654.76 targets/s Total_targets: 1104845
+INFO:root:[STEP 10620] StepTime: 0.57 sec Speed: 2674.49 targets/s Total_targets: 1104845
+INFO:root:[STEP 10650] StepTime: 0.62 sec Speed: 2473.48 targets/s Total_targets: 1104845
+INFO:root:[STEP 10680] StepTime: 0.55 sec Speed: 2766.67 targets/s Total_targets: 1104845
+INFO:root:[STEP 10710] StepTime: 0.60 sec Speed: 2597.27 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 30 STEP 10710] Learning_rate: 0.5000 Dev_acc: 0.9535 Train_acc: 0.9944
+INFO:root:[CHECKPOINT 30 STEP 10710] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 10740] StepTime: 0.60 sec Speed: 2639.56 targets/s Total_targets: 1104845
+INFO:root:[STEP 10770] StepTime: 0.60 sec Speed: 2574.59 targets/s Total_targets: 1104845
+INFO:root:[STEP 10800] StepTime: 0.57 sec Speed: 2709.82 targets/s Total_targets: 1104845
+INFO:root:[STEP 10830] StepTime: 0.58 sec Speed: 2649.62 targets/s Total_targets: 1104845
+INFO:root:[STEP 10860] StepTime: 0.60 sec Speed: 2579.54 targets/s Total_targets: 1104845
+INFO:root:[STEP 10890] StepTime: 0.60 sec Speed: 2496.35 targets/s Total_targets: 1104845
+INFO:root:[STEP 10920] StepTime: 0.59 sec Speed: 2618.21 targets/s Total_targets: 1104845
+INFO:root:[STEP 10950] StepTime: 0.60 sec Speed: 2555.37 targets/s Total_targets: 1104845
+INFO:root:[STEP 10980] StepTime: 0.59 sec Speed: 2585.34 targets/s Total_targets: 1104845
+INFO:root:[STEP 11010] StepTime: 0.61 sec Speed: 2554.43 targets/s Total_targets: 1104845
+INFO:root:[STEP 11040] StepTime: 0.62 sec Speed: 2482.15 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 31 STEP 11067] Learning_rate: 0.5000 Dev_acc: 0.9536 Train_acc: 0.9948
+INFO:root:[CHECKPOINT 31 STEP 11067] Model saved using 0.02 sec at ../model/model_segHan/saved_model/model
+INFO:root:[STEP 11070] StepTime: 0.61 sec Speed: 2507.66 targets/s Total_targets: 1104845
+INFO:root:[STEP 11100] StepTime: 0.56 sec Speed: 2723.85 targets/s Total_targets: 1104845
+INFO:root:[STEP 11130] StepTime: 0.61 sec Speed: 2560.39 targets/s Total_targets: 1104845
+INFO:root:[STEP 11160] StepTime: 0.63 sec Speed: 2478.05 targets/s Total_targets: 1104845
+INFO:root:[STEP 11190] StepTime: 0.60 sec Speed: 2536.54 targets/s Total_targets: 1104845
+INFO:root:[STEP 11220] StepTime: 0.60 sec Speed: 2578.51 targets/s Total_targets: 1104845
+INFO:root:[STEP 11250] StepTime: 0.61 sec Speed: 2557.58 targets/s Total_targets: 1104845
+INFO:root:[STEP 11280] StepTime: 0.60 sec Speed: 2545.32 targets/s Total_targets: 1104845
+INFO:root:[STEP 11310] StepTime: 0.59 sec Speed: 2607.27 targets/s Total_targets: 1104845
+INFO:root:[STEP 11340] StepTime: 0.61 sec Speed: 2540.50 targets/s Total_targets: 1104845
+INFO:root:[STEP 11370] StepTime: 0.64 sec Speed: 2441.68 targets/s Total_targets: 1104845
+INFO:root:[STEP 11400] StepTime: 0.61 sec Speed: 2526.90 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 32 STEP 11424] Learning_rate: 0.5000 Dev_acc: 0.9530 Train_acc: 0.9956
+INFO:root:[STEP 11430] StepTime: 0.58 sec Speed: 2690.96 targets/s Total_targets: 1104845
+INFO:root:[STEP 11460] StepTime: 0.62 sec Speed: 2523.32 targets/s Total_targets: 1104845
+INFO:root:[STEP 11490] StepTime: 0.59 sec Speed: 2637.69 targets/s Total_targets: 1104845
+INFO:root:[STEP 11520] StepTime: 0.62 sec Speed: 2556.16 targets/s Total_targets: 1104845
+INFO:root:[STEP 11550] StepTime: 0.57 sec Speed: 2692.47 targets/s Total_targets: 1104845
+INFO:root:[STEP 11580] StepTime: 0.59 sec Speed: 2603.29 targets/s Total_targets: 1104845
+INFO:root:[STEP 11610] StepTime: 0.60 sec Speed: 2591.24 targets/s Total_targets: 1104845
+INFO:root:[STEP 11640] StepTime: 0.58 sec Speed: 2656.35 targets/s Total_targets: 1104845
+INFO:root:[STEP 11670] StepTime: 0.57 sec Speed: 2658.43 targets/s Total_targets: 1104845
+INFO:root:[STEP 11700] StepTime: 0.59 sec Speed: 2575.12 targets/s Total_targets: 1104845
+INFO:root:[STEP 11730] StepTime: 0.61 sec Speed: 2521.31 targets/s Total_targets: 1104845
+INFO:root:[STEP 11760] StepTime: 0.59 sec Speed: 2633.89 targets/s Total_targets: 1104845
+INFO:root:[CHECKPOINT 33 STEP 11781] Learning_rate: 0.5000 Dev_acc: 0.9535 Train_acc: 0.9957
+INFO:root:Training finished. Running out of patience.
