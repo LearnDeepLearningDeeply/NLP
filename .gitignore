@@ -1,0 +1,8 @@
+# ignore chenhangting personal dir
+/chenhangting/
+
+# ignore temp files
+__pycache__/
+/model/model_segHan/data_cache/*
+*.log
+log*
