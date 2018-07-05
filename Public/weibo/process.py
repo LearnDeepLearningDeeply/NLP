@@ -6,10 +6,10 @@
     usage : python raw_weibo_corpus processed_weibo_corpus
 """
 
+from __future__ import print_function
 import re
 import sys
 import time
-from __future__ import print_function
 
 pattern2enter=[
     r'\xa3\xac',r',',
@@ -18,7 +18,7 @@ pattern2enter=[
     r'[^\d].[^\d]',r'\xa1\xa3',r'[^\d]\xa3\xae[\^d]',
     r'\xa3\xba',r':',
     r'\xa1\xb0',r'\xa1\xb1',r'\'',
-    r'\xa3\xa8',r'\xa3\xa9',r'(',r')',
+    r'\xa3\xa8',r'\xa3\xa9',r'\(',r'\)',
     r'\xa1\xab',r'~',
     r'/',
     r'\xa3\xba',r':',
@@ -36,17 +36,17 @@ pattern2blank=[
     r'\xa1b6.*\xa1b7',
 ]
 pattern2pattern=[
-    ('0',r'\xa3\xb0'),
-    ('1',r'\xa3\xb1'),
-    ('2',r'\xa3\xb2'),
-    ('3',r'\xa3\xb3'),
-    ('4',r'\xa3\xb4'),
-    ('5',r'\xa3\xb5'),
-    ('6',r'\xa3\xb6'),
-    ('7',r'\xa3\xb7'),
-    ('8',r'\xa3\xb8'),
-    ('9',r'\xa3\xb9'),
-    (r'.',r'\xa3\xae'),
+    ('0','\xa3\xb0'),
+    ('1','\xa3\xb1'),
+    ('2','\xa3\xb2'),
+    ('3','\xa3\xb3'),
+    ('4','\xa3\xb4'),
+    ('5','\xa3\xb5'),
+    ('6','\xa3\xb6'),
+    ('7','\xa3\xb7'),
+    ('8','\xa3\xb8'),
+    ('9','\xa3\xb9'),
+    (r'.','\xa3\xae'),
 ]
 # pattern2space=[]
 
