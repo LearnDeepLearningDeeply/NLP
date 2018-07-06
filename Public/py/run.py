@@ -422,7 +422,7 @@ def decode(ans=False):
         data_utils.data_to_token_ids(FLAGS.test_path_to, to_test, to_vocab_path)
         test_data, test_max_len = data_utils.read_data(from_test, to_test)
     else:
-        test_data, test_max_len = read_test_data(from_test, _buckets)
+        test_data, test_max_len = data_utils.read_test_data(from_test)
 
     test_total_size = len(test_data)
 

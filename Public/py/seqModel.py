@@ -203,13 +203,14 @@ class SeqModel(object):
             else:
                 source_seq= []
 
-            weights.append(len(source_seq))
+            #weights.append(len(source_seq))
             
             source_seq =  source_seq + [self.PAD_ID] * (self.max_len - len(source_seq))            
             source_input_ids.append(source_seq)
+            lengths.append(len(source_seq))
                     
         finished = False
-        if start_id != None and start_id + self.batch_size >= len(data_set[bucket_id]):
+        if start_id != None and start_id + self.batch_size >= len(data_set):
             finished = True
 
         return source_input_ids, lengths, finished
