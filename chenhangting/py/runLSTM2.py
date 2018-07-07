@@ -14,7 +14,7 @@ import tensorflow as tf
 from tensorflow.contrib import learn
 import logging
 import data_utils
-from seqModel import SeqModel
+from seqModel2 import SeqModel
 
 import data_iterator
 from data_iterator import DataIterator
