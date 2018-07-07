@@ -39,7 +39,7 @@ def batch_norm_wrapper(inputs, is_training, decay = 0.999,epsilon=1e-3):
     pop_mean = tf.Variable(tf.zeros([inputs.get_shape()[-1]]), trainable=False)
     pop_var = tf.Variable(tf.ones([inputs.get_shape()[-1]]), trainable=False)
 
-    if is_training:
+    def f1():
         batch_mean, batch_var = tf.nn.moments(inputs,[0,1])
         train_mean = tf.assign(pop_mean,
                                pop_mean * decay + batch_mean * (1 - decay))
@@ -48,9 +48,10 @@ def batch_norm_wrapper(inputs, is_training, decay = 0.999,epsilon=1e-3):
         with tf.control_dependencies([train_mean, train_var]):
             return tf.nn.batch_normalization(inputs,
                 batch_mean, batch_var, beta, scale, epsilon)
-    else:
+    def f2():
         return tf.nn.batch_normalization(inputs,
             pop_mean, pop_var, beta, scale, epsilon)
+    return tf.cond(is_training,f1,f2)
 
 class CnnModel(object):
     
@@ -114,7 +115,7 @@ class CnnModel(object):
             self.is_training=tf.placeholder(tf.bool,shape=[])
             self.learning_rate = tf.Variable(
                 float(learning_rate), trainable=False, dtype=dtype)
-            #这条语句真的会执行？
+            #will this operation be excuted ?doubt it really
             self.learning_rate_decay_op = self.learning_rate.assign(
                 self.learning_rate * learning_rate_decay_factor)
             self.global_step = tf.Variable(0, trainable=False)
@@ -133,25 +134,25 @@ class CnnModel(object):
             with tf.name_scope('cnn'):
                 self.W_conv1=weight_variable([3,self.size,self.size])
                 self.b_conv1=bias_variable([self.size])
-                self.z_conv1=self.b_conv1+tf.nn.conv1d(self.input_embed,self.W_conv1,[1,1,1],'SAME',data_format='NWC')
+                self.z_conv1=self.b_conv1+tf.nn.conv1d(self.input_embed,self.W_conv1,1,'SAME',data_format='NWC')
                 self.bn_conv1=batch_norm_wrapper(self.z_conv1,self.is_training)
                 self.h_conv1=tf.nn.dropout(tf.nn.relu(self.bn_conv1),keep_prob=self.dropoutRate_place)
 
-                self.W_conv2=weight_variable([3,self.size,self,size])
+                self.W_conv2=weight_variable([3,self.size,self.size])
                 self.b_conv2=bias_variable([self.size])
-                self.z_conv2=self.b_conv2+tf.nn.convolution(self.h_conv1,self.W_conv2,padding='SAME',strides=[1,1,1],dilation_rate=[1,self.dilation_rate,1],data_format='NWC')
+                self.z_conv2=self.b_conv2+tf.nn.convolution(self.h_conv1,self.W_conv2,padding='SAME',strides=[1,],dilation_rate=[self.dilation_rate,],data_format='NWC')
                 self.bn_conv2=batch_norm_wrapper(self.z_conv2,self.is_training)
                 self.h_conv2=tf.nn.dropout(tf.nn.relu(self.bn_conv2),keep_prob=self.dropoutRate_place)
 
-                self.W_conv3=weight_variable([3,self.size,self,size])
+                self.W_conv3=weight_variable([3,self.size,self.size])
                 self.b_conv3=bias_variable([self.size])
-                self.z_conv3=self.b_conv3+tf.nn.convolution(self.h_conv2,self.W_conv3,padding='SAME',strides=[1,1,1],dilation_rate=[1,self.dilation_rate,1],data_format='NWC')
+                self.z_conv3=self.b_conv3+tf.nn.convolution(self.h_conv2,self.W_conv3,padding='SAME',strides=[1,],dilation_rate=[self.dilation_rate,],data_format='NWC')
                 self.bn_conv3=batch_norm_wrapper(self.z_conv3,self.is_training)
                 self.h_conv3=tf.nn.dropout(tf.nn.relu(self.bn_conv3),keep_prob=self.dropoutRate_place)
 
                 self.W_conv4=weight_variable([3,self.size,self.size])
                 self.b_conv4=bias_variable([self.size])
-                self.z_conv4=self.b_conv4+tf.nn.conv1d(self.h_conv3,self.W_conv4,[1,1,1],'SAME',data_format='NWC')
+                self.z_conv4=self.b_conv4+tf.nn.conv1d(self.h_conv3,self.W_conv4,1,'SAME',data_format='NWC')
                 self.bn_conv4=batch_norm_wrapper(self.z_conv4,self.is_training)
                 self.h_conv4=tf.nn.relu(self.bn_conv4)    
 
@@ -159,7 +160,7 @@ class CnnModel(object):
 
         # Output Layer
             self.target = tf.placeholder(tf.int32, shape = [self.batch_size, self.max_len], name = "target")
-            self.output_embedding = tf.get_variable("output_embedding",[target_vocab_size, size*2], dtype = dtype)
+            self.output_embedding = tf.get_variable("output_embedding",[target_vocab_size, size], dtype = dtype)
             logits = tf.matmul(self.hts_flat, tf.transpose(self.output_embedding))
             self.unary_scores = tf.reshape(logits, [self.batch_size, self.max_len, self.target_vocab_size])
             log_likelihood, transition_params = tf.contrib.crf.crf_log_likelihood(self.unary_scores, self.target, self.input_lens)
@@ -178,7 +179,6 @@ class CnnModel(object):
                 gradients = tf.gradients(self.loss, params, colocate_gradients_with_ops=True)
                 # clipped_gradients, norm = tf.clip_by_global_norm(gradients, max_gradient_norm)
                 # self.gradient_norms = norm
-                self.gradient_norms=None
                 self.updates = opt.apply_gradients(zip(gradients, params), global_step=self.global_step)
 
         self.saver = tf.train.Saver(tf.global_variables())
@@ -206,7 +206,8 @@ class CnnModel(object):
             output_feed = [self.loss]
             output_feed += [self.unary_scores]
             output_feed += [self.transition_matrix]
-            output_feed += [self.updates, self.gradient_norms]
+            #output_feed += [self.updates, self.gradient_norms]
+            output_feed += [self.updates]
 
         outputs = session.run(output_feed, input_feed, options = self.run_options, run_metadata = self.run_metadata)
 

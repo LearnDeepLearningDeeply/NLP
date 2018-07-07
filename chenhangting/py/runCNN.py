@@ -45,7 +45,7 @@ parser.add_argument("--test_path_to", type=str, default="./test.tgt", help="the 
 parser.add_argument("--decode_output", type=str, default="./test.output", help="beam search decode output.")
 
 # tuning hypers
-parser.add_argument("--learning_rate", type=float, default=0.01, help="Learning rate.")
+parser.add_argument("--learning_rate", type=float, default=0.5, help="Learning rate.")
 parser.add_argument("--learning_rate_decay_factor", type=float, default=0.83, help="Learning rate decays by this much.")
 parser.add_argument("--keep_prob", type=float, default=0.8, help="dropout rate.")
 parser.add_argument("--batch_size", type=int, default=128, help="Batch size to use during training/evaluation.")
@@ -210,6 +210,7 @@ def train():
         tf.set_random_seed(23)
         config = tf.ConfigProto(allow_soft_placement=True, log_device_placement = False)
         config.gpu_options.allow_growth = FLAGS.allow_growth
+        config.gpu_options.per_process_gpu_memory_fraction = 1.0
         with tf.Session(config=config) as sess:
             
             # runtime profile
@@ -365,7 +366,6 @@ def train():
 def evaluate(sess, model, data_set, word_embedding):
     # Run evals on development set and print their perplexity/loss or accuracy.
     dropoutRateRaw = FLAGS.keep_prob
-    sess.run(model.dropout10_op)
 
     start_id = 0
     loss = 0.0
@@ -388,7 +388,6 @@ def evaluate(sess, model, data_set, word_embedding):
     loss = loss/(n_valids)
     acc = n_correct * 1.0 /(n_valids)
 
-    sess.run(model.dropoutAssign_op)
 
     return loss, acc
 
@@ -435,6 +434,7 @@ def decode(ans=False):
     
     config = tf.ConfigProto(allow_soft_placement=True, log_device_placement = False)
     config.gpu_options.allow_growth = FLAGS.allow_growth
+    config.gpu_options.per_process_gpu_memory_fraction = 1.0
 
     mylog_section("IN TENSORFLOW")
     with tf.Session(config=config) as sess:
