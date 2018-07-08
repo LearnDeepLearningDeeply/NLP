@@ -453,7 +453,7 @@ def decode(ans=False):
         mylog_section("All Variables")
         show_all_variables()
  
-        sess.run(model.dropoutRate.assign(1.0))
+        #sess.run(model.dropoutRate.assign(1.0))
 
         start_id = 0
         n_steps = 0
