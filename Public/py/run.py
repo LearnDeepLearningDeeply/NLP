@@ -116,7 +116,7 @@ def log_flags():
     for attr, value in sorted(FLAGS.__dict__.items()):
         mylog("{}={}".format(attr.upper(), value))
 
-def create_model(session, run_options, run_metadata, max_len):
+def create_model(session, run_options, run_metadata, max_len, word_vector=None):
     devices = get_device_address(FLAGS.N)
     dtype = tf.float32
     model = SeqModel(FLAGS.size,
@@ -134,7 +134,7 @@ def create_model(session, run_options, run_metadata, max_len):
                      devices = devices,
                      run_options = run_options,
                      run_metadata = run_metadata,
-                     word_vector = FLAGS.word_vector
+                     word_vector = word_vector
                      )
 
     ckpt = tf.train.get_checkpoint_state(FLAGS.saved_model_dir)
@@ -223,7 +223,7 @@ def train():
             mylog_section("MODEL/SUMMARY/WRITER")
     
             mylog("Creating Model.. (this can take a few minutes)")
-            model = create_model(sess, run_options, run_metadata, max_len)
+            model = create_model(sess, run_options, run_metadata, max_len, word_embedding)
     
             if FLAGS.with_summary:
                 mylog("Creating ModelSummary")
@@ -273,7 +273,7 @@ def train():
                 # data and train
                 source_inputs, source_lengths, target_outputs = ite.next()
 
-                L, unary_scores, transition_matrix = model.step(sess, source_inputs, target_outputs, source_lengths, word_embedding)
+                L, unary_scores, transition_matrix = model.step(sess, source_inputs, target_outputs, source_lengths)
                 
                 # loss and time
                 step_time += (time.time() - start_time) / steps_per_checkpoint
@@ -378,7 +378,7 @@ def evaluate(sess, model, data_set, word_embedding):
     ite = dite.next_sequence()
 
     for sources, lengths, outputs in ite:
-        L, unary_scores, transition_matrix= model.step(sess, sources, outputs, lengths, word_embedding, forward_only = True)
+        L, unary_scores, transition_matrix= model.step(sess, sources, outputs, lengths, forward_only = True)
         _, correct_labels = CRF_viterbi_decode(unary_scores, transition_matrix, lengths, outputs)
         n_correct += correct_labels
         loss += L

@@ -1,4 +1,3 @@
-
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -44,7 +43,7 @@ class SeqModel(object):
                  run_metadata = None,
                  dtype=tf.float32,
                  with_attention = False,
-                 word_vector = False
+                 word_vector = None
                  ):
         """Create the model.
         
@@ -93,10 +92,10 @@ class SeqModel(object):
 
         # Input Layer
         with tf.device(devices[0]):
-            self.input_embedding = tf.get_variable("input_embedding",[from_vocab_size, size], dtype = dtype)
-            if self.word_vector:
-                self.word_embedding_init = tf.placeholder(tf.float32,[from_vocab_size, size], name="word_embedding_init")
-                self.input_embedding.assign(self.word_embedding_init)
+            if self.word_vector is not None:
+            	self.input_embedding = tf.get_variable("input_embedding", dtype = dtype, initializer = tf.constant(self.word_vector, dtype=dtype))
+            else:
+            	self.input_embedding = tf.get_variable("input_embedding",[from_vocab_size, size], dtype = dtype)
             self.input_plhd = tf.placeholder(tf.int32, shape = [self.batch_size, self.max_len], name = "input")
             self.input_embed = tf.nn.embedding_lookup(self.input_embedding, self.input_plhd)
             self.input_lens = tf.placeholder(tf.int32, shape = [self.batch_size], name="input_length")
@@ -140,15 +139,12 @@ class SeqModel(object):
         self.best_saver = tf.train.Saver(tf.global_variables())
 
 
-    def step(self,session, inputs, targets, lengths, 
-        word_embedding = None, forward_only = False):
+    def step(self,session, inputs, targets, lengths, forward_only = False):
 
         input_feed = {}
         input_feed[self.input_plhd.name] = inputs
         input_feed[self.input_lens] = lengths
         input_feed[self.target] = targets
-        if word_embedding is not None:
-            input_feed[self.word_embedding_init.name] = word_embedding
 
         # output_feed
         if forward_only:
