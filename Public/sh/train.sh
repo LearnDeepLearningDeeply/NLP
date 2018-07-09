@@ -14,4 +14,4 @@ python $PY --mode TRAIN --model_dir $MODEL_DIR \
     --train_path_to $TRAIN_PATH_TO --dev_path_to $DEV_PATH_TO \
     --batch_size 64 --from_vocab_size 5000 --to_vocab_size 10 --size 128 \
     --n_epoch 1 --saveCheckpoint True --learning_rate 0.5 --keep_prob 0.5 \
-    --N 123 --word_vec_path $WORD_VEC
+    --N 111 --word_vec_path $WORD_VEC

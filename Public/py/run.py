@@ -210,6 +210,7 @@ def train():
         tf.set_random_seed(23)
         config = tf.ConfigProto(allow_soft_placement=True, log_device_placement = False)
         config.gpu_options.allow_growth = FLAGS.allow_growth
+        config.gpu_options.per_process_gpu_memory_fraction = 0.8
         with tf.Session(config=config) as sess:
             
             # runtime profile
@@ -550,7 +551,7 @@ def main(_):
     
     parsing_flags()
 
-    os.environ['CUDA_VISIBLE_DEVICES'] = ','.join(FLAGS.N)
+    os.environ['CUDA_VISIBLE_DEVICES'] = ','.join(set(FLAGS.N))
     
     if FLAGS.mode == "TRAIN":
         train()

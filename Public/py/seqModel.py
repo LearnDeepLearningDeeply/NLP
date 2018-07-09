@@ -78,62 +78,62 @@ class SeqModel(object):
         self.word_vector = word_vector
 
         # some parameters
-        with tf.device(devices[0]):
-            self.dropoutRate = tf.Variable(
-                float(dropoutRate), trainable=False, dtype=dtype)        
-            self.dropoutAssign_op = self.dropoutRate.assign(dropoutRate)
-            self.dropout10_op = self.dropoutRate.assign(1.0)
-            self.learning_rate = tf.Variable(
-                float(learning_rate), trainable=False, dtype=dtype)
-            self.learning_rate_decay_op = self.learning_rate.assign(
-                self.learning_rate * learning_rate_decay_factor)
-            self.global_step = tf.Variable(0, trainable=False)
+        # with tf.device(devices[0]):
+        self.dropoutRate = tf.Variable(
+            float(dropoutRate), trainable=False, dtype=dtype)        
+        self.dropoutAssign_op = self.dropoutRate.assign(dropoutRate)
+        self.dropout10_op = self.dropoutRate.assign(1.0)
+        self.learning_rate = tf.Variable(
+            float(learning_rate), trainable=False, dtype=dtype)
+        self.learning_rate_decay_op = self.learning_rate.assign(
+            self.learning_rate * learning_rate_decay_factor)
+        self.global_step = tf.Variable(0, trainable=False)
 
 
         # Input Layer
-        with tf.device(devices[0]):
-            if self.word_vector is not None:
-            	self.input_embedding = tf.get_variable("input_embedding", dtype = dtype, initializer = tf.constant(self.word_vector, dtype=dtype))
-            else:
-            	self.input_embedding = tf.get_variable("input_embedding",[from_vocab_size, size], dtype = dtype)
-            self.input_plhd = tf.placeholder(tf.int32, shape = [self.batch_size, self.max_len], name = "input")
-            self.input_embed = tf.nn.embedding_lookup(self.input_embedding, self.input_plhd)
-            self.input_lens = tf.placeholder(tf.int32, shape = [self.batch_size], name="input_length")
+        # with tf.device(devices[0]):
+        if self.word_vector is not None:
+            self.input_embedding = tf.get_variable("input_embedding", dtype = dtype, initializer = tf.constant(self.word_vector, dtype=dtype))
+        else:
+            self.input_embedding = tf.get_variable("input_embedding",[from_vocab_size, size], dtype = dtype)
+        self.input_plhd = tf.placeholder(tf.int32, shape = [self.batch_size, self.max_len], name = "input")
+        self.input_embed = tf.nn.embedding_lookup(self.input_embedding, self.input_plhd)
+        self.input_lens = tf.placeholder(tf.int32, shape = [self.batch_size], name="input_length")
 
         # BLSTM Layer
-        with tf.device(devices[1]):
-            with tf.variable_scope("blstm") as scope:
-                forward_hts, _ = tf.nn.dynamic_rnn(tf.nn.rnn_cell.LSTMCell(self.size), self.input_embed, dtype=tf.float32, sequence_length=self.input_lens, scope="LSTM_forward")
-                input_embed_reversed = tf.reverse_sequence(self.input_embed, self.input_lens, seq_dim=1)
-                backward_hts_, _ = tf.nn.dynamic_rnn(tf.nn.rnn_cell.LSTMCell(self.size), input_embed_reversed, dtype=tf.float32, sequence_length=self.input_lens, scope="LSTM_backward")
-                backward_hts = tf.reverse_sequence(backward_hts_, self.input_lens, seq_dim=1)
-                self.hts = tf.concat([forward_hts, backward_hts], 2)
-                self.hts_flat = tf.reshape(self.hts, [-1, size*2])
+        # with tf.device(devices[1]):
+        with tf.variable_scope("blstm") as scope:
+            forward_hts, _ = tf.nn.dynamic_rnn(tf.nn.rnn_cell.LSTMCell(self.size), self.input_embed, dtype=tf.float32, sequence_length=self.input_lens, scope="LSTM_forward")
+            input_embed_reversed = tf.reverse_sequence(self.input_embed, self.input_lens, seq_dim=1)
+            backward_hts_, _ = tf.nn.dynamic_rnn(tf.nn.rnn_cell.LSTMCell(self.size), input_embed_reversed, dtype=tf.float32, sequence_length=self.input_lens, scope="LSTM_backward")
+            backward_hts = tf.reverse_sequence(backward_hts_, self.input_lens, seq_dim=1)
+            self.hts = tf.concat([forward_hts, backward_hts], 2)
+            self.hts_flat = tf.reshape(self.hts, [-1, size*2])
 
         # Output Layer
-        with tf.device(devices[2]):
-            self.target = tf.placeholder(tf.int32, shape = [self.batch_size, self.max_len], name = "target")
-            self.output_embedding = tf.get_variable("output_embedding",[target_vocab_size, size*2], dtype = dtype)
-            logits = tf.matmul(self.hts_flat, tf.transpose(self.output_embedding))
-            self.unary_scores = tf.reshape(logits, [self.batch_size, self.max_len, self.target_vocab_size])
-            log_likelihood, transition_params = tf.contrib.crf.crf_log_likelihood(self.unary_scores, self.target, self.input_lens)
-            self.loss = tf.reduce_mean(-log_likelihood)
-            self.transition_matrix = transition_params
+        # with tf.device(devices[2]):
+        self.target = tf.placeholder(tf.int32, shape = [self.batch_size, self.max_len], name = "target")
+        self.output_embedding = tf.get_variable("output_embedding",[target_vocab_size, size*2], dtype = dtype)
+        logits = tf.matmul(self.hts_flat, tf.transpose(self.output_embedding))
+        self.unary_scores = tf.reshape(logits, [self.batch_size, self.max_len, self.target_vocab_size])
+        log_likelihood, transition_params = tf.contrib.crf.crf_log_likelihood(self.unary_scores, self.target, self.input_lens)
+        self.loss = tf.reduce_mean(-log_likelihood)
+        self.transition_matrix = transition_params
 
 
         # train
-        with tf.device(devices[0]):
-            params = tf.trainable_variables()
-            if not forward_only:
-                if withAdagrad:
-                    opt = tf.train.AdagradOptimizer(self.learning_rate)
-                else:
-                    opt = tf.train.GradientDescentOptimizer(self.learning_rate)
+        # with tf.device(devices[0]):
+        params = tf.trainable_variables()
+        if not forward_only:
+            if withAdagrad:
+                opt = tf.train.AdagradOptimizer(self.learning_rate)
+            else:
+                opt = tf.train.GradientDescentOptimizer(self.learning_rate)
 
-                gradients = tf.gradients(self.loss, params, colocate_gradients_with_ops=True)
-                clipped_gradients, norm = tf.clip_by_global_norm(gradients, max_gradient_norm)
-                self.gradient_norms = norm
-                self.updates = opt.apply_gradients(zip(clipped_gradients, params), global_step=self.global_step)
+            gradients = tf.gradients(self.loss, params, colocate_gradients_with_ops=True)
+            clipped_gradients, norm = tf.clip_by_global_norm(gradients, max_gradient_norm)
+            self.gradient_norms = norm
+            self.updates = opt.apply_gradients(zip(clipped_gradients, params), global_step=self.global_step)
 
         self.saver = tf.train.Saver(tf.global_variables())
         self.best_saver = tf.train.Saver(tf.global_variables())
