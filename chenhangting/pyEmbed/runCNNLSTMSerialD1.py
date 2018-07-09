@@ -281,8 +281,9 @@ def train():
                 # loss and time
                 step_time += (time.time() - start_time) / steps_per_checkpoint
     
-                #_, correct_labels = CRF_viterbi_decode(unary_scores, transition_matrix, source_lengths, target_outputs)
-                #correct += correct_labels
+                if FLAGS.train_decode_flag:
+                    _, correct_labels = CRF_viterbi_decode(unary_scores, transition_matrix, source_lengths, target_outputs)
+                    correct += correct_labels
                 loss += L
                 
                 current_step += 1
@@ -325,8 +326,11 @@ def train():
     
                     # report
                     sect_name = "CHECKPOINT {} STEP {}".format(i_checkpoint, current_step)
-                    #msg = "Learning_rate: {:.4f} Dev_acc: {:.4f} Train_acc: {:.4f}".format(learning_rate, dev_acc, train_acc)
-                    msg = "Learning_rate: {:.4f} Dev_acc: {:.4f}".format(learning_rate, dev_acc)
+                    
+                    if FLAGS.train_decode_flag:
+                        msg = "Learning_rate: {:.4f} Dev_acc: {:.4f} Train_acc: {:.4f}".format(learning_rate, dev_acc, train_acc)
+                    else:
+                        msg = "Learning_rate: {:.4f} Dev_acc: {:.4f}".format(learning_rate, dev_acc)
                     mylog_line(sect_name, msg)
     
                     if FLAGS.with_summary:
@@ -552,6 +556,7 @@ def parsing_flags():
 def main(_):
     
     parsing_flags()
+    FLAGS.train_decode_flag=True
 
     os.environ['CUDA_VISIBLE_DEVICES'] = ','.join(FLAGS.N)
     
