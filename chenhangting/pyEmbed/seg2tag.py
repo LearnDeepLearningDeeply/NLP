@@ -29,7 +29,7 @@ def raw2tag(sent):
 	return src, tgt
 
 def loadCorpus(filename):
-	with open(filename, 'r') as fin:
+	with open(filename, 'r',encoding='gbk') as fin:
 		corpus = []
 		line = fin.readline().strip()
 		while line:
@@ -86,7 +86,7 @@ def splitData(src, tgt, train_size = 0.6, valid_size = 0.2):
 	return train_src, train_tgt, valid_src, valid_tgt, test_src, test_tgt
 
 def writeData(data, filename):
-	with open(filename, 'w') as fout, open('../data/longSent.txt', 'a+') as flong, open('../data/shortSent.txt', 'a+') as fst:
+	with open(filename, 'w',encoding='gbk') as fout, open('../data/longSent.txt', 'a+',encoding='gbk') as flong, open('../data/shortSent.txt', 'a+',encoding='gbk') as fst:
 		for line in data:
 			if len(line) <= 1:
 				fst.write(' '.join(line) + '\n')

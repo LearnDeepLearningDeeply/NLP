@@ -271,7 +271,7 @@ def get_vocab_info(cache_dir):
 
 def get_real_vocab_size(vocab_path):
     n = 0
-    f = open(vocab_path)
+    f = open(vocab_path,encoding='gbk')
     for line in f:
         n+=1
     f.close()
@@ -280,13 +280,13 @@ def get_real_vocab_size(vocab_path):
 
 def ids_to_tokens(lines, to_vocab_path, dest_path):
     d = []
-    f = open(to_vocab_path)
+    f = open(to_vocab_path,encoding='gbk')
     for line in f:
         line = line.strip()
         d.append(line)
     f.close()
 
-    f = open(dest_path,'w')
+    f = open(dest_path,'w',encoding='gbk')
     for line in lines:
         sent = " ".join([d[x] for x in line[:-1]])
         f.write(sent+"\n")
@@ -296,12 +296,12 @@ def ids_to_tokens(lines, to_vocab_path, dest_path):
 def read_word_vec(word_vec_path, cache_dir):
     from_vocab_path = os.path.join(cache_dir, "vocab.from")
     vocab_dict = {}
-    with open(from_vocab_path, 'r') as fin:
+    with open(from_vocab_path, 'r',encoding='gbk') as fin:
       for word_id, word in enumerate(fin.readlines()):
         vocab_dict[word] = word_id
     np.random.seed(10)
     vocab_size = len(vocab_dict)
-    with open(word_vec_path, 'r') as fin :
+    with open(word_vec_path, 'r',encoding='gbk') as fin :
         [num, dim] = [int(ele) for ele in fin.readline().strip().split()]
         words = []
         vectors = []
