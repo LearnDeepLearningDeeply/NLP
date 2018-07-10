@@ -40,7 +40,7 @@
 + 卷积核的size，padding，stride均固定
 + 卷积核的dilation rate可调
 + Conv1-4后都接有Batch norm，ReLu
-+ Conv2-4前都接有Dropout
++ Conv2-4前都接有Dropout，keep_prob=0.8
 
 ## CNN Results
 | Dilation rate | Train(%) | Dev(%) | Test(%) |
@@ -69,3 +69,19 @@
 | Parallel | 2 | 99.32 | 96.27 | 96.20 |
 | Serial | 1 | 99.18 | **96.82** | **96.78** |
 | Serial | 2 | 99.13 | 96.79 | 96.69 |
+
+# Collection
+
+| Model | Notes | Pretrained Word Vector | Dropout in BLSTM | Train(%) | Dev(%) | Test(%) |
+|:-----:|:----- |:----------------------:|:----------------:|:----------:|:---:|:---:|
+| CNN | dilation=2 | × | - |  98.39 | **96.38** | **96.31** |
+| CNN | dilation=2 | √ | - |  98.13 | 96.15 | 96.20 |
+| BLSTM | num_layers=2 | × | × |  99.99 | 95.75 | 95.77 |
+| BLSTM | num_layers=2 | √ | × |  99.99 | **95.80** | **95.77** |
+| BLSTM | num_layers=2 | √ | √ |  99.63 | 95.58 | 95.49 |
+| Parallel | dilation=1 & BLSTM_layers=2 | × | × |  99.48 | 96.49 | 96.37 |
+| Parallel | dilation=1 & BLSTM_layers=2 | √ | × |  99.31 | 96.51 | 96.44 |
+| Parallel | dilation=1 & BLSTM_layers=2 | √ | √ |  99.64 | **96.64** | **96.56** |
+| Serial | dilation=1 & BLSTM_layers=2 | × | × | 99.18 | 96.82 | 96.78 |
+| Serial | dilation=1 & BLSTM_layers=2 | √ | × |  99.35 | **96.91** | **96.87** |
+| Serial | dilation=1 & BLSTM_layers=2 | √ | √ |  99.20 | 96.83 | 96.79 |
