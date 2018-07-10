@@ -298,7 +298,7 @@ def read_word_vec(word_vec_path, cache_dir):
     vocab_dict = {}
     with open(from_vocab_path, 'r',encoding='gbk') as fin:
       for word_id, word in enumerate(fin.readlines()):
-        vocab_dict[word] = word_id
+        vocab_dict[word.strip()] = word_id
     np.random.seed(10)
     vocab_size = len(vocab_dict)
     with open(word_vec_path, 'r',encoding='gbk') as fin :
