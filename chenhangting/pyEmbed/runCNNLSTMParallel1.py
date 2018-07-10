@@ -274,7 +274,7 @@ def train():
                 start_time = time.time()
                 
                 # data and train
-                source_inputs, source_lengths, target_outputs = ite.next()
+                source_inputs, source_lengths, target_outputs = ite.__next__()
 
                 L, unary_scores, transition_matrix = model.step(sess, source_inputs, target_outputs, source_lengths)
                 

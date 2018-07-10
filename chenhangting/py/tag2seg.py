@@ -19,7 +19,7 @@ def tag2seg(sent, tags):
 	return seg.strip()
 
 def read_data(sent_file_path, tag_file_path, seg_file_path):
-	with open(sent_file_path, 'r') as fin1, open(tag_file_path, 'r') as fin2, open(seg_file_path, 'w') as fout:
+	with open(sent_file_path, 'r',encoding='gbk') as fin1, open(tag_file_path, 'r',encoding='gbk') as fin2, open(seg_file_path, 'w',encoding='gbk') as fout:
 		sent, tags = fin1.readline(), fin2.readline()
 		while sent and tags:
 			sent = sent.strip().split()
