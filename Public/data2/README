@@ -1,0 +1,21 @@
+训练、测试语料：
+	连续英文单词统一转换为_ENG
+	人民日报语料中的特殊编号XXXXXXXX-XX-XXX-XXX统一转换为_DATE
+	数字转换为全角
+
+测试语料：	
+解码输入test.src, 输出test.ouput, 正确答案test.tgt
+调用：
+python tag2seg test.src test.ouput test.loc test.eng test.dat test.seg
+生成测试集分词结果 test.seg
+调用：
+./score pku_training_words.txt pku_test_gold.txt test.seg > score.txt
+cat score.txt | tail -n 15
+可以查看结果
+
+
+如果有新的语料需要测试，只需要保证gbk编码即可，不要有空行！例如demo.txt
+调用：
+python seg2tag.py demo.txt demo
+
+生成 demo.src用于解码， demo.loc, demo.eng, demo.dat 用于生成最终的分词文件
